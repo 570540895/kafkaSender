@@ -1,11 +1,11 @@
 from kafka import KafkaProducer
 import json
 
-# Kafka集群的地址，假设只有一个Broker
-kafka_servers = ['10.200.88.46:9092', '10.200.88.47:9092', '10.200.88.50:9092']  # 替换成实际的Kafka集群地址
+# Kafka集群的地址
+kafka_servers = ['10.200.88.46:9092', '10.200.88.47:9092', '10.200.88.50:9092']
 
 # 目标Topic
-topic_name = 'dros_node_fault_detect_simulation'  # 替换为实际的topic名称
+topic_name = 'dros_node_fault_detect_simulation'
 
 # 创建Kafka生产者
 producer = KafkaProducer(
@@ -28,7 +28,6 @@ message = {
     "status": "0",
     "criticalMessages": [{"reason":"测试","message":"故障描述","status":"3","startTime":"2024-12-04 00:00:00","endTime":"2024-12-05 15:54:38"}]
 }
-  # 替换为实际的消息内容
 
 # 发送消息到Kafka
 producer.send(topic_name, value=message)
