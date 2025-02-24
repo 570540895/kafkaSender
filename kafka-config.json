@@ -1,0 +1,4 @@
+{
+  "servers": ["10.200.88.46:9092", "10.200.88.47:9092", "10.200.88.50:9092"],
+  "topic": "dros_node_fault_detect_simulation"
+}

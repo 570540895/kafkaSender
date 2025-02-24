@@ -1,11 +1,12 @@
 from kafka import KafkaProducer
 import json
 
-# Kafka集群的地址
-kafka_servers = ['10.200.88.46:9092', '10.200.88.47:9092', '10.200.88.50:9092']
+kafka_cfg_file = 'kafka-config.json'
 
-# 目标Topic
-topic_name = 'dros_node_fault_detect_simulation'
+with open(kafka_cfg_file, 'r') as fp:
+    kafka_cfg_dict = json.load(fp)
+    kafka_servers = kafka_cfg_dict['servers']
+    topic_name = kafka_cfg_dict['topic']
 
 # 创建Kafka生产者
 producer = KafkaProducer(
